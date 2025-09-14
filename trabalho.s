@@ -36,10 +36,10 @@ _start:
     subq $16, %rsp
 
     # A
-    movq $15, -8(%rbp)
+    movq $5, -8(%rbp)
 
     # B
-    movq $5, -16(%rbp)
+    movq $3, -16(%rbp)
 
     movq %rbp, %rax
     subq $8, %rax             # rax = endereço de A
