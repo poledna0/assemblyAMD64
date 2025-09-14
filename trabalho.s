@@ -36,10 +36,10 @@ _start:
     subq $16, %rsp
 
     # A
-    movq $5, -8(%rbp)
+    movq $15, -8(%rbp)
 
     # B
-    movq $3, -16(%rbp)
+    movq $5, -16(%rbp)
 
     movq %rbp, %rax
     subq $8, %rax             # rax = endereço de A
@@ -47,8 +47,8 @@ _start:
     movq %rbp, %rbx           # rbx = %rbp
     subq $16, %rbx            # rbx = endereço de B
 
-    pushq %rbx
     pushq %rax
+    pushq %rbx
 
     call soma
 

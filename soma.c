@@ -10,8 +10,8 @@ void soma(long int *x, long int *y) {
 }
 
 int main(){
-    long int a = 5;
-    long int b = 3;
+    long int a = 15;
+    long int b = 5;
     soma(&a, &b);
     return a;
 }
