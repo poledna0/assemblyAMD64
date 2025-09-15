@@ -16,7 +16,10 @@ soma:
     jle casonao               # se *x < *y, vai pro else
 
     addq %rdx, %rcx           # tmp = *x + *y
-    movq %rcx, (%rax)         # *x = tmp
+    movq %rcx, -8(%rbp)
+    #movq -8(%rbp), (%rax)
+    movq -8(%rbp), %rsi
+    movq %rsi, (%rax)
 
     addq $8, %rsp
     popq %rbp
@@ -24,8 +27,11 @@ soma:
 
 casonao:
     addq %rcx, %rdx           # tmp = *y + *x
-    movq %rdx, (%rbx)         # *y = tmp
+    movq %rdx, -8(%rbp)       # tmp = rdx (salva a soma na tmp)
+    #movq -8(%rbp), (%rbx)
 
+    movq -8(%rbp), %rsi
+    movq %rsi, (%rbx)         # *y = tmp (move da tmp para *y)
     addq $8, %rsp
     popq %rbp
     ret
