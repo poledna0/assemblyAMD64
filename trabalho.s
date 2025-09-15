@@ -17,7 +17,9 @@ soma:
 
     addq %rdx, %rcx           # tmp = *x + *y
     movq %rcx, -8(%rbp)
-    #movq -8(%rbp), (%rax)
+    
+    # movq -8(%rbp), (%rax)
+
     movq -8(%rbp), %rsi
     movq %rsi, (%rax)
 
@@ -28,7 +30,8 @@ soma:
 casonao:
     addq %rcx, %rdx           # tmp = *y + *x
     movq %rdx, -8(%rbp)       # tmp = rdx (salva a soma na tmp)
-    #movq -8(%rbp), (%rbx)
+    
+    # movq -8(%rbp), (%rbx)
 
     movq -8(%rbp), %rsi
     movq %rsi, (%rbx)         # *y = tmp (move da tmp para *y)
